@@ -1255,3 +1255,102 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   OUESTELIO CHATBOT WIDGET
+   ======================================== */
+
+/* Variables Ouestelio injectées dans le widget n8n */
+#n8n-chat {
+    /* Couleurs principales */
+    --chat--color--primary:              #009999;
+    --chat--color--primary--shade-100:   #007a7a;
+    --chat--color--primary-shade-50:     #00b3b3;
+    --chat--color--secondary:            #E91E8C;
+
+    /* Fond général */
+    --chat--body--background:            #f4fafa;
+    --chat--color-light:                 #e0f5f5;
+    --chat--color-light-shade-50:        #c7ecec;
+    --chat--color-light-shade-100:       #b0e2e2;
+    --chat--color-dark:                  #1a1a1a;
+
+    /* En-tête */
+    --chat--header--background:          #009999;
+    --chat--header--color:               #ffffff;
+
+    /* Messages bot */
+    --chat--message--bot--background:    #ffffff;
+    --chat--message--bot--color:         #1a1a1a;
+
+    /* Messages user */
+    --chat--message--user--background:   #009999;
+    --chat--message--user--color:        #ffffff;
+
+    /* Bouton d'envoi */
+    --chat--input--send--button--background:       #009999;
+    --chat--input--send--button--color:            #ffffff;
+    --chat--input--send--button--background-hover: #007a7a;
+    --chat--input--send--button--color-hover:      #ffffff;
+
+    /* Bouton primaire (Nouvelle conversation) */
+    --chat--button--background--primary:            #009999;
+    --chat--button--color--primary:                 #ffffff;
+    --chat--button--background--primary--hover:     #007a7a;
+    --chat--button--color--primary--hover:          #ffffff;
+    --chat--button--border--primary:                transparent;
+    --chat--button--border--primary--hover:         transparent;
+
+    /* Toggle (bouton flottant) */
+    --chat--toggle--background:          #009999;
+    --chat--toggle--hover--background:   #007a7a;
+    --chat--toggle--active--background:  #007a7a;
+    --chat--toggle--color:               #ffffff;
+    --chat--toggle--size:                64px;
+    --chat--toggle--border-radius:       16px;
+
+    /* Fenêtre de chat */
+    --chat--window--width:               380px;
+    --chat--border-radius:               12px;
+}
+
+/* Logo Ouestelio comme bouton toggle */
+.chat-window-toggle {
+    overflow: hidden !important;
+    padding: 0 !important;
+    box-shadow: 0 4px 24px rgba(0, 153, 153, 0.4) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.chat-window-toggle:hover {
+    transform: scale(1.08) !important;
+    box-shadow: 0 8px 32px rgba(0, 153, 153, 0.5) !important;
+}
+
+/* Remplace l'icône par le logo SVG */
+.chat-window-toggle::before {
+    content: '' !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: url('logo-ouestelio.svg') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+/* Masque l'icône n8n par défaut */
+.chat-window-toggle svg {
+    display: none !important;
+}
+
+/* Ombre sur la fenêtre de chat */
+.chat-window {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Titre en-tête en gras */
+.chat-window .chat-title {
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+}

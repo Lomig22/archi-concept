@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 </head>
 <body>
     <!-- Navigation -->
@@ -458,5 +459,45 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Ouestelio IA Chatbot -->
+    <div id="n8n-chat"></div>
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://n8n.srv1525833.hstgr.cloud/webhook/d835658f-ebb3-438f-8e82-09dcea8f2e67/chat',
+            webhookConfig: {
+                method: 'POST',
+                headers: {}
+            },
+            target: '#n8n-chat',
+            mode: 'window',
+            chatInputKey: 'chatInput',
+            chatSessionKey: 'sessionId',
+            loadPreviousSession: true,
+            metadata: {},
+            showWelcomeScreen: false,
+            defaultLanguage: 'en',
+            initialMessages: [
+                'Bonjour 👋',
+                'Je suis l\'assistant IA de Ouestelio, je suis là pour vous aider.',
+                'Je peux vous aider à trouver un service ou faire une demande de devis.',
+                'Que souhaitez-vous faire ?'
+            ],
+            i18n: {
+                en: {
+                    title: 'Ouestelio IA',
+                    subtitle: 'Votre assistant virtuel, disponible 24h/24.',
+                    footer: '',
+                    getStarted: 'Nouvelle conversation',
+                    inputPlaceholder: 'Tapez votre message...',
+                    close: 'Fermer',
+                },
+            },
+            enableStreaming: false,
+        });
+
+    </script>
 </body>
 </html>
